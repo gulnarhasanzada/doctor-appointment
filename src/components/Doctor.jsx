@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col'
+import AddModal from './AddModal';
 
-const Doctor = ({id, name, dep, img}) => {
+const Doctor = ({doctor}) => {
+  const {id, name, dep, img} = doctor;  
+
+  const [show, setShow] = useState(false);  
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <Card style={{ width: '18rem' }} className='mx-2'>
-      <Card.Img variant="top" src={img} />
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{dep}</Card.Text>
-      </Card.Body>
-    </Card>
+    <Col>
+        <Card style={{ width: '18rem' }} className='mx-2' onClick={handleShow}>
+        <Card.Img variant="top" src={img} />
+        <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>{dep}</Card.Text>
+        </Card.Body>
+        </Card>
+        <AddModal show={show} onHide={handleClose} doctor={doctor}/>
+    </Col>
   )
 }
 
