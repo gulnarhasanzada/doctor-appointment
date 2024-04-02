@@ -9,7 +9,7 @@ const Home = () => {
         <Row className='text-center my-3'>
             <h1 className='header-title text-uppercase'>Clarus Hospital</h1>
         </Row>
-        <Row>
+        <Row className='d-flex flex-row flex-wrap justify-content-center g-3'>
             <Doctors/>    
         </Row>      
     </Container>
