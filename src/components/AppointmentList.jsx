@@ -1,10 +1,13 @@
 import React from 'react'
+import Appointment from './Appointment'
 
-const AppointmentList = () => {
+const AppointmentList = ({apptList, onDelete, onUpdate}) => {
+
+
   return (
-    <div>
-      
-    </div>
+    <>
+    {apptList.map(item=><Appointment key={item.id} appt={item} onDelete={onDelete} onUpdate={onUpdate}/>)}
+    </>
   )
 }
 
