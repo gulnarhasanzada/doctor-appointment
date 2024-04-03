@@ -3,18 +3,12 @@ import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 
 const Appointment = ({appt, onDelete, onUpdate}) => {
-    console.log(appt)
-    const hours = appt.day.getHours();
-    const minutes = appt.day.getMinutes();
-    const seconds = appt.day.getSeconds();
-
     const handleDelete = ()=>{
         onDelete(appt.id)
     }
 
     const handleUpdate = (e)=>{
         if(e.target.name !=='deleteBtn'){
-            console.log(e.target.name)
             onUpdate(appt.id)
         } 
     }
@@ -28,8 +22,8 @@ const Appointment = ({appt, onDelete, onUpdate}) => {
       <Col>
         {appt.consulted && <span>Consulted</span>}
         <Col>
-            <p>{appt.day.toDateString()}</p>
-            <p>{`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</p>
+            <p>{appt.day.toLocaleString().split(',')[0]}</p>
+            <p>{appt.day.toLocaleString().split(',')[1]}</p>
         </Col>
       </Col>
       <Col className="text-end">

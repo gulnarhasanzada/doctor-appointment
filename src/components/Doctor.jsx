@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col'
 import AddModal from './AddModal';
 
-const Doctor = ({doctor}) => {
+const Doctor = ({doctor, onAdd}) => {
   const {id, name, dep, img} = doctor;  
 
   const [show, setShow] = useState(false);  
@@ -18,7 +18,7 @@ const Doctor = ({doctor}) => {
             <Card.Text>{dep}</Card.Text>
         </Card.Body>
         </Card>
-        <AddModal show={show} onHide={handleClose} doctor={doctor}/>
+        <AddModal show={show} onHide={handleClose} doctor={doctor} onAdd={onAdd}/>
     </Col>
   )
 }
